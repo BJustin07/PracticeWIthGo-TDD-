@@ -4,13 +4,23 @@ import "testing"
 
 func TestHello(t *testing.T) {
 	t.Run("Saying hello with name", func(t *testing.T) {
-		got := Hello("bishes")
+		got := Hello("bishes", "English")
 		want := "Hello, bishes"
 		assertMessage(t, got, want)
 	})
 	t.Run("Saying hello world if name has no value", func(t *testing.T) {
-		got := Hello("")
-		want := "Hello, Woorld"
+		got := Hello("", "")
+		want := "Hello, World"
+		assertMessage(t, got, want)
+	})
+	t.Run("In tagalog", func(t *testing.T) {
+		got := Hello("Enteng", "Tagalog")
+		want := "Kamusta, Enteng"
+		assertMessage(t, got, want)
+	})
+	t.Run("In bisaya", func(t *testing.T) {
+		got := Hello("Enteng", "Bisaya")
+		want := "Maupay, Enteng"
 		assertMessage(t, got, want)
 	})
 }
