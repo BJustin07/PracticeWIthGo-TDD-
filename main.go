@@ -1,36 +1,14 @@
 package main
 
-import "fmt"
-
-const (
-	tagalogHelloPrefix = "Kamusta, "
-	englishHelloPrefix = "Hello, "
-	bisayaHelloPrefix  = "Maupay, "
-	tagalog            = "Tagalog"
-	bisaya             = "Bisaya"
-	english            = "English"
+import (
+	"TrainingGo/helloWorld"
+	"TrainingGo/integers"
+	"fmt"
 )
 
-func Hello(name, language string) string {
-	if name == "" {
-		name = "World"
-	}
-	greetingMessage := greetingByLanguage(language) + name
-	return greetingMessage
-}
-
-func greetingByLanguage(language string) (prefix string) {
-	switch language {
-	case tagalog:
-		prefix = tagalogHelloPrefix
-	case bisaya:
-		prefix = bisayaHelloPrefix
-	default:
-		prefix = englishHelloPrefix
-	}
-	return
-}
-
 func main() {
-	fmt.Println(Hello("PeterGun", "English"))
+	helloMessage := helloWorld.Hello("Luna", "Bisaya")
+	fmt.Println(helloMessage)
+	addition := integers.Add(2, 2)
+	fmt.Println(addition)
 }
